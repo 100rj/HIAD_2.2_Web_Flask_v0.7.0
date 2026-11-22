@@ -1,0 +1,27 @@
+# HIAD 원자료와 프로그램 실행자료
+data/
+uploads/
+*.xlsx
+*.xlsm
+*.sqlite3
+*.db
+
+# Python 실행 생성파일
+__pycache__/
+*.pyc
+*.pyo
+
+# 로그·임시파일
+*.log
+*.tmp
+*.bak
+
+# 개인정보와 비밀설정
+.env
+.env.*
+secrets.json
+config_private.json
+
+# 운영체제 생성파일
+Thumbs.db
+.DS_Store
