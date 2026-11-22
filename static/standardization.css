@@ -1,0 +1,13 @@
+.metric-grid.seven{grid-template-columns:repeat(4,1fr)}
+.label-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.label-grid div{position:relative;padding:15px;background:#f3f8f9;border-radius:9px;min-height:112px}
+.label-grid span,.label-grid small{display:block;color:var(--muted);font-size:11px}
+.label-grid b{display:block;font-size:13px;padding-right:44px}
+.label-grid strong{position:absolute;right:14px;top:14px;font-size:24px;color:var(--blue)}
+.data-scroll{overflow:auto;border:1px solid var(--line);border-radius:10px}
+.data-scroll table{width:100%;border-collapse:collapse;font-size:12px}
+.data-scroll th,.data-scroll td{text-align:left;padding:10px;border-bottom:1px solid #e8eff1;vertical-align:top}
+.data-scroll th{background:#eff5f6;white-space:nowrap}
+.data-scroll td.raw{white-space:pre-line;min-width:220px}
+.data-scroll tr:last-child td{border-bottom:0}
+@media(max-width:760px){.metric-grid.seven,.label-grid{grid-template-columns:1fr 1fr}}

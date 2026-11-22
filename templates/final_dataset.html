@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-head"><div><p class="eyebrow">STEP 07</p><h1>최종 다중라벨 학습 데이터셋 생성</h1><p>3~6단계의 결과를 사건 ID 기준으로 통합하여 학습용 데이터셋과 추적 가능한 검토자료를 생성합니다.</p></div><span class="status">{{ 'step7_complete' if build else 'ready' }}</span></div>
+{% if summary.temporary_test_records %}<div class="flash error"><b>주의:</b> TEST_AUTO 임시 검토자료가 {{ summary.temporary_test_records }}건 포함되어 있습니다. 기능 시험에는 사용할 수 있지만 실제 연구용 최종본으로 확정해서는 안 됩니다.</div>{% endif %}
+<section class="card">
+<div class="section-title"><div><h2>통합 결과 요약</h2><p>제외 사건은 학습 데이터셋에서 빠지지만 추적표에는 보존됩니다.</p></div><span class="number">07</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0">
+<div class="file-info"><b>전체 사건</b><span>{{ summary.total_events }}건</span></div>
+<div class="file-info"><b>학습 포함</b><span>{{ summary.included_events }}건</span></div>
+<div class="file-info"><b>제외</b><span>{{ summary.excluded_events }}건</span></div>
+<div class="file-info"><b>다중라벨</b><span>{{ summary.multi_label_events }}건</span></div>
+<div class="file-info"><b>총 양성 라벨</b><span>{{ summary.total_positive_labels }}개</span></div>
+<div class="file-info"><b>임시 검토자료</b><span>{{ summary.temporary_test_records }}건</span></div>
+</div>
+<h3>최종 라벨 분포</h3>
+<div style="overflow:auto"><table><thead><tr><th>코드</th><th>한글명</th><th>원래 이름</th><th>사건 수</th></tr></thead><tbody>{% for label in labels %}<tr><td>{{ label.code }}</td><td>{{ label.korean }}</td><td>{{ label.name }}</td><td>{{ summary.label_distribution[label.code] }}</td></tr>{% endfor %}</tbody></table></div>
+<form method="post" action="{{ url_for('generate_final_dataset',project_id=project.id) }}" style="margin-top:20px"><button type="submit">{{ '최종 데이터셋 다시 생성' if build else '최종 데이터셋 생성 확정' }}</button></form>
+{% if build %}<p style="margin-top:10px">생성 시각: {{ build.generated_at }}</p>{% endif %}
+</section>
+<section class="card"><div class="section-title"><div><h2>최종 산출물 내려받기</h2><p>통합 ZIP에는 아래 5개 연구 산출물이 모두 포함됩니다.</p></div></div>
+<div class="actions">
+<a class="button" href="{{ url_for('download_final_package',project_id=project.id) }}">최종 산출물 ZIP</a>
+<a class="button secondary" href="{{ url_for('download_final_dataset_csv',project_id=project.id) }}">학습 데이터셋 CSV</a>
+<a class="button secondary" href="{{ url_for('download_final_audit_csv',project_id=project.id) }}">최종라벨 추적표 CSV</a>
+<a class="button secondary" href="{{ url_for('download_final_evidence_csv',project_id=project.id) }}">후보근거 CSV</a>
+<a class="button secondary" href="{{ url_for('download_final_report_json',project_id=project.id) }}">구축보고서 JSON</a>
+<a class="button secondary" href="{{ url_for('project',project_id=project.id) }}">프로젝트로 돌아가기</a>
+</div></section>
+{% endblock %}

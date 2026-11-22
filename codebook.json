@@ -1,0 +1,120 @@
+{
+  "name": "HIAD_2.2_EHSP_Cause_Machine_Readable_Codebook",
+  "version": "1.0.0",
+  "source_file": "HIAD 2.2 Export for users 2026 01 01.xlsx",
+  "source_sheet": "Classes for EVENTS",
+  "source_section": "EHSP causes (rows 11-19)",
+  "scope_note": "EHSP causes are root causes; an initiating cause alone is not coded as an EHSP root cause.",
+  "decision_policy": {
+    "multi_label": true,
+    "unknown_is_exclusive": true,
+    "root_cause_analysis_priority": 1,
+    "event_description_priority": 2,
+    "candidate_only": true,
+    "minimum_evidence": "At least one explicit rule match in narrative text; generic component failure alone is insufficient.",
+    "negation_window_tokens": 5
+  },
+  "labels": [
+    {
+      "label_id": "EHSP_C01", "official_order": 2,
+      "official_name": "System design error", "korean_name": "시스템 설계 오류",
+      "source_column": "System design error",
+      "official_definition": "Inadequate mechanical integrity measures; corrosion-related loss of integrity; inadequate design of pressure relief valves, venting components; lack of attention to risk of hydrogen accumulation; inappropriate material choices; unwanted hydrogen generation; inadequate process hazards analysis; inadequate operating procedures.",
+      "inclusion": "The narrative explicitly attributes a root cause to design, technical risk assessment, mechanical-integrity provisions, relief/venting, hydrogen accumulation control, material selection, unwanted hydrogen generation, hazard analysis, or operating-procedure design.",
+      "exclusion": "Do not use for a component failure without design evidence; wrong physical installation is C03; lack of maintenance or inspection is C04; individual mistake is C05; organizational safety-system failure may additionally be C06.",
+      "rules": [
+        {"rule_id":"C01_R01","pattern":"\\b(inadequate|incorrect|improper|poor|faulty|defective)\\s+(system\\s+)?design\\b|\\bdesign\\s+(error|failure|flaw|defect|shortcoming)\\b","evidence":"explicit design deficiency"},
+        {"rule_id":"C01_R02","pattern":"\\b(not|never|inadequately)\\s+designed\\b|\\bdesign(ed)?\\s+without\\b","evidence":"system not adequately designed"},
+        {"rule_id":"C01_R03","pattern":"\\b(inadequate|insufficient|lack of|absence of)\\s+(pressure\\s+relief|relief\\s+valve|venting|ventilation|mechanical\\s+integrity|hazard(s)?\\s+analysis|risk\\s+assessment|operating\\s+procedure)\\b","evidence":"named design safeguard deficiency"},
+        {"rule_id":"C01_R04","pattern":"\\bcorrosion[- ]related\\s+(loss|failure)|\\bloss of integrity due to corrosion\\b|\\binappropriate material (choice|selection)\\b|\\bunwanted hydrogen generation\\b","evidence":"official technical-design example"}
+      ]
+    },
+    {
+      "label_id": "EHSP_C02", "official_order": 3,
+      "official_name": "Material/ manufacturing error", "korean_name": "재료·제조 오류",
+      "source_column": "Material/ manufacturing error",
+      "official_definition": "For example, material compatibility; failure due to ageing of (sub)-components (welds, flanges, O-rings, gaskets, seals, etc.); premature opening of the burst disks.",
+      "inclusion": "The narrative explicitly identifies material incompatibility/defect, manufacturing defect, ageing-related component degradation, or premature burst-disk opening as a root cause.",
+      "exclusion": "A leak, rupture, weld failure, membrane failure, gasket failure, or component failure alone is insufficient. Corrosion-related integrity loss is C01 under the HIAD definition unless a manufacturing/material defect is separately stated.",
+      "rules": [
+        {"rule_id":"C02_R01","pattern":"\\b(material incompatib|incompatible material|material defect|defective material|manufacturing defect|manufacturing error|fabrication defect|fabrication error)","evidence":"explicit material/manufacturing defect"},
+        {"rule_id":"C02_R02","pattern":"\\b(ageing|aging|age-related|fatigue-related)\\s+(failure|degradation|deterioration)|\\bfailure due to (ageing|aging|fatigue)\\b","evidence":"ageing-related failure"},
+        {"rule_id":"C02_R03","pattern":"\\bpremature(ly)?\\s+(opening|opened|rupture(d)?)\\s+of\\s+(the\\s+)?burst\\s+disc","evidence":"premature burst-disk operation"}
+      ]
+    },
+    {
+      "label_id": "EHSP_C03", "official_order": 4,
+      "official_name": "Installation error", "korean_name": "설치 오류",
+      "source_column": "Installation error",
+      "official_definition": "For example, wrong consumables replacement after maintenance; components erroneously installed (one-way valves; bolts with wrong dimension, not properly sitting in the flange).",
+      "inclusion": "The narrative explicitly states incorrect installation, assembly, seating, connection, dimensions, orientation, or wrong replacement during maintenance.",
+      "exclusion": "Do not infer installation error solely because failure followed maintenance. Maintenance omission is C04; operator mistake without an installation act is C05.",
+      "rules": [
+        {"rule_id":"C03_R01","pattern":"\\b(incorrectly|improperly|wrongly|erroneously)\\s+(installed|assembled|fitted|connected|mounted|seated|oriented)\\b|\\b(incorrect|improper|faulty|wrong)\\s+installation\\b","evidence":"explicit incorrect installation"},
+        {"rule_id":"C03_R02","pattern":"\\bwrong\\s+(consumable|component|part)\\s+replacement\\b|\\bwrong[- ]dimension(ed)?\\s+bolt|\\bnot properly (seated|sitting)\\b","evidence":"official installation example"}
+      ]
+    },
+    {
+      "label_id": "EHSP_C04", "official_order": 5,
+      "official_name": "Job factors", "korean_name": "작업 요인",
+      "source_column": "Job factors ",
+      "official_definition": "Lack of (clear) instructions; lack of maintenance or inspection - poorly maintained equipment; training and enforcement of safety practice and procedures; high workload; noisy and unpleasant working conditions; constant disturbances and interruptions.",
+      "inclusion": "The narrative explicitly identifies inadequate instructions, maintenance, inspection, training/enforcement, workload, working conditions, disturbances, or interruptions at the job/task level.",
+      "exclusion": "An individual mistake is C05 unless a job-system condition is stated. Organization-wide planning, responsibility, barriers, health-and-safety management, or culture is C06 and may co-occur.",
+      "rules": [
+        {"rule_id":"C04_R01","pattern":"\\b(lack of|inadequate|insufficient|poor|failure to perform|no)\\s+(maintenance|inspection)\\b|\\bpoorly maintained\\b","evidence":"maintenance/inspection deficiency"},
+        {"rule_id":"C04_R02","pattern":"\\b(lack of|unclear|inadequate|insufficient|no)\\s+(clear\\s+)?(instruction|work instruction|task procedure)s?\\b","evidence":"instruction deficiency"},
+        {"rule_id":"C04_R03","pattern":"\\b(inadequate|insufficient|lack of|poor)\\s+(worker\\s+|operator\\s+|safety\\s+)?training\\b|\\bfailure to enforce\\s+(safety|procedure|practice)","evidence":"training/enforcement deficiency"},
+        {"rule_id":"C04_R04","pattern":"\\b(high|excessive)\\s+workload\\b|\\bwork pressure\\b|\\b(noisy|unpleasant) working conditions\\b|\\b(disturbance|interruption)s?\\b","evidence":"adverse job condition"}
+      ]
+    },
+    {
+      "label_id": "EHSP_C05", "official_order": 6,
+      "official_name": "Human factors", "korean_name": "인적 요인",
+      "source_column": "Human factors",
+      "official_definition": "Individual/human factors, i.e. inadequate skill and competence levels; individual medical problems; mistakes, etc.",
+      "inclusion": "The narrative explicitly attributes the root cause to an individual error, mistake, skill/competence deficit, or medical condition.",
+      "exclusion": "Do not infer human factors merely because a worker operated equipment. Use C04 for deficient instructions/training/work conditions and C06 for organizational causes; multilabel is allowed when both levels are explicit.",
+      "rules": [
+        {"rule_id":"C05_R01","pattern":"\\b(human|operator|worker|individual)\\s+(error|mistake|failure)\\b|\\boperator inadvertently\\b|\\baccidentally (opened|closed|activated|disconnected|connected)\\b","evidence":"explicit individual error"},
+        {"rule_id":"C05_R02","pattern":"\\b(inadequate|insufficient|lack of)\\s+(skill|competence|competency|experience)\\b|\\bmedical (problem|condition)\\b","evidence":"individual capability/medical factor"}
+      ]
+    },
+    {
+      "label_id": "EHSP_C06", "official_order": 7,
+      "official_name": "Management factors", "korean_name": "관리 요인",
+      "source_column": "Management factors",
+      "official_definition": "Poor work planning; leading to high work pressure; lack of safety systems and barriers; failure to learn from previous incidents; management too biased to one-way communications; lack of co-ordination and clear definition of responsibilities; poor management of health and safety; poor safety culture.",
+      "inclusion": "The narrative explicitly identifies organization/management-level planning, safety systems/barriers, learning, communication, coordination, responsibility, H&S management, or safety culture deficiencies.",
+      "exclusion": "Task-level maintenance/instruction/training is C04 unless an organizational management cause is separately stated. Individual error is C05.",
+      "rules": [
+        {"rule_id":"C06_R01","pattern":"\\b(poor|inadequate|insufficient|lack of)\\s+(work\\s+)?planning\\b|\\bmanagement (failure|shortcoming|deficien)\\w*","evidence":"planning/management deficiency"},
+        {"rule_id":"C06_R02","pattern":"\\b(lack of|absence of|inadequate|insufficient)\\s+(safety\\s+)?(system|barrier)s?\\b|\\bfailure to learn from (previous )?(incident|accident)s?\\b","evidence":"safety system or organizational learning deficiency"},
+        {"rule_id":"C06_R03","pattern":"\\b(lack of|poor|inadequate)\\s+(co-ordination|coordination|communication)\\b|\\b(unclear|undefined|lack of clear)\\s+(roles?|responsibilit)\\w*","evidence":"coordination/responsibility deficiency"},
+        {"rule_id":"C06_R04","pattern":"\\bpoor (management of )?(health and safety|safety management|safety culture)\\b|\\bweak safety culture\\b","evidence":"H&S management/culture deficiency"}
+      ]
+    },
+    {
+      "label_id": "EHSP_C07", "official_order": 8,
+      "official_name": "Environment", "korean_name": "환경 요인",
+      "source_column": "Environment",
+      "official_definition": "Lightning, earthquake, flooding. Galvanic corrosion is not an example of force majeure; it is part of technical risk assessment and therefore does not belong to this category.",
+      "inclusion": "Lightning, earthquake, or flooding is explicitly identified as a causal/root-causal factor.",
+      "exclusion": "Galvanic corrosion and ordinary technical corrosion are not C07. Weather mentioned only as background without a causal statement is insufficient.",
+      "rules": [
+        {"rule_id":"C07_R01","pattern":"\\b(lightning|lightning strike|earthquake|seismic event|flooding|flooded|flood water)\\b","evidence":"official external natural-environment example"}
+      ]
+    },
+    {
+      "label_id": "EHSP_C08", "official_order": 1,
+      "official_name": "Unknown", "korean_name": "원인 불명",
+      "source_column": "Unknown",
+      "official_definition": "No definition text is present in the source row; operationally, the root cause cannot be determined from the available event information.",
+      "inclusion": "Use only when no C01-C07 candidate is supported and the narrative explicitly says the root cause is unknown/undetermined, or the root-cause-analysis field is empty.",
+      "exclusion": "C08 is mutually exclusive with C01-C07. A rule engine's failure to match a sufficiently detailed narrative does not by itself prove Unknown; classify that case as no_candidate/review_required.",
+      "rules": [
+        {"rule_id":"C08_R01","pattern":"\\b(root )?cause (is|was|remains)?\\s*(unknown|undetermined|not determined|not identified|unclear)\\b|\\bcould not be determined\\b|\\bno definitive cause\\b","evidence":"explicit unknown cause"}
+      ]
+    }
+  ]
+}
