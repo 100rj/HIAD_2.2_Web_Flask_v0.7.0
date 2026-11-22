@@ -1,0 +1,44 @@
+{
+  "manifest_type": "public_synthetic_format_example",
+  "repository_program": "HIAD 2.2 Web Dataset Builder",
+  "repository_program_version": "0.7.0",
+  "example_output_provenance": "public synthetic examples prepared with the supplementary reproducibility builder",
+  "repository": "https://github.com/100rj/HIAD_2.2_Web_Flask_v0.7.0",
+  "run_id": "SYNTHETIC-DEMO-001",
+  "recorded_at_kst": "2026-11-23T00:00:00+09:00",
+  "configuration": {
+    "path": "reproducibility_materials/config/settings_example_v0.7.0.json",
+    "sha256": "2dd30914c8f0c37855439af8f09c6fb119816557b4541cfea3ee29b83faabc71"
+  },
+  "input": {
+    "path": "reproducibility_materials/examples/input/example_hiad_synthetic.csv",
+    "sha256": "20d71f45eb43bf099eed5441550b8ae74a63a1cee84b90f8d5ac3d64d3631d3a",
+    "record_count": 3,
+    "data_class": "synthetic"
+  },
+  "review": {
+    "path": "reproducibility_materials/examples/review/example_review_result.csv",
+    "sha256": "1fb39a36cb8422ef4f65c0c9fdd4c1dd36a6e81fc3daaa64826e8f2d6e5ce670",
+    "reviewer_identifier": "pseudonymous_example"
+  },
+  "codebook": {
+    "path_in_repository": "codebook.json",
+    "sha256": "732cd86d47a7e500ec5bc288e99b0709c120a6cea847bac59e1e599446d9d893"
+  },
+  "outputs": [
+    {"path": "examples/output/01_input_validation.csv", "sha256": "228868201d9306a940a848fb7c6ab3521cb3408a0527061551df84c29c49ff4a"},
+    {"path": "examples/output/02_standardized_events.csv", "sha256": "08df4f8732dedaeb42baf97c7794086d7bf05cccf5c6722b30efeae47d56b0a9"},
+    {"path": "examples/output/10_candidate_labels.csv", "sha256": "22999b3bffaf2f67384ce9997a5d2fbf8e2cda6b482ada472c58b4a51d1fbd80"},
+    {"path": "examples/output/11_candidate_evidence.csv", "sha256": "a677adc7814c2640f212ae3920049f33bffaa1ef53ba53999a701d0b92d9fb99"},
+    {"path": "examples/output/19_dataset_wide_final.csv", "sha256": "6de624f4b9b314896e58f04a63358a36ca8769eff95c3c2afa205c030e09f2df"},
+    {"path": "examples/output/20_dataset_long_final.csv", "sha256": "3d78d06a084f39894a9901272ec58bb656675034c219bb52f1e5a28531de92f7"},
+    {"path": "examples/output/21_quality_report.csv", "sha256": "ed21a88353f69ba8068ae77c51c799a5279bff16fcd968de06842ce753a2917b"}
+  ],
+  "exclusions": [
+    "HIAD 2.2 source workbook",
+    "actual reviewer identifying information",
+    "SQLite runtime database",
+    "API credentials and environment secrets"
+  ],
+  "note": "All hashes in this manifest are calculated from the included synthetic example files. The example outputs demonstrate format and integrity and are not represented as a full v0.7.0 web execution. They are not hashes of the restricted HIAD 2.2 research source data."
+}

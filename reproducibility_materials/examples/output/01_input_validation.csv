@@ -1,0 +1,5 @@
+﻿Check,Value,Status
+row_count,3,PASS
+blank_event_id,0,PASS
+duplicate_event_id,0,PASS
+missing_required_columns,0,PASS

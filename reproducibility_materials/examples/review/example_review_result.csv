@@ -1,0 +1,5 @@
+Event_ID,Review_Type,Original_Labels,Candidate_Labels,Final_Labels,Decision,Evidence_Text,Reason,Reviewer_ID,Review_Status,Review_Date
+SYN-001,comparison_review,C03,C03,C03,유지,"incorrectly installed fitting","설치 오류가 명시됨",R001,검토완료,2026-11-22
+SYN-002,comparison_review,"C01;C06","C01;C06","C01;C06",유지,"undersized; procedure was incomplete","설계와 관리 요인이 각각 확인됨",R001,검토완료,2026-11-22
+SYN-003,no_candidate_review,C08,C08,C08,유지,"cause was not determined","구체 원인을 확인할 수 없음",R001,검토완료,2026-11-22
+

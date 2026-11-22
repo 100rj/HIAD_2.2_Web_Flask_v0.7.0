@@ -1,0 +1,4 @@
+﻿Event_ID,Event_full_description,Root_CAUSE_analysis,Summary_root_causes,Original_labels,Original_Labels_Standardized
+SYN-001,A hydrogen line leaked after an incorrectly installed fitting became loose.,The connection was incorrectly installed during assembly.,Installation error,C03,C03
+SYN-002,The relief device did not have sufficient capacity during abnormal pressure rise.,The protection system was undersized and the inspection procedure was incomplete.,Design and management factors,C01;C06,C01;C06
+SYN-003,"A release was reported, but the available record did not identify the cause.",The cause was not determined and remained under investigation.,Unknown,C08,C08

@@ -1,0 +1,2 @@
+event_id,quality_level,confirmed_labels,candidate_labels,review_status,decision,final_labels,evidence_type,reason,memo,reviewer_id,reviewed_at
+SYN-EXAMPLE,Q1,C08,,pending,,,,,,,

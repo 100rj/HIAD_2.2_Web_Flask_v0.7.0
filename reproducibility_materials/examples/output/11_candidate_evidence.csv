@@ -1,0 +1,5 @@
+﻿Event_ID,Label_Code,Evidence_Indicator
+SYN-001,C03,installation; incorrectly installed; assembly; connection
+SYN-002,C01,design; undersized
+SYN-002,C06,procedure; inspection
+SYN-003,C08,unknown; not determined; under investigation

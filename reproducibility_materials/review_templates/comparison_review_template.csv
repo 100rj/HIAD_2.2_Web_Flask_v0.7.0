@@ -1,0 +1,2 @@
+event_id,comparison_type,confirmed_labels,candidate_labels,candidate_additions,candidate_omissions,review_status,decision,final_labels,evidence_type,reason,memo,reviewer_id,reviewed_at
+SYN-EXAMPLE,candidate_addition,C03,C03|C06,C06,,pending,,,,,,,
